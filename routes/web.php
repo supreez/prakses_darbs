@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\specialitates as Specialitates;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/prieksmeti', function () {
+    return view('/admin/prieksmeti');
+});
+Route::get('/specialitates', 'SpecialitatesController@allSpecialitates');
+Route::post('/specialitates', 'SpecialitatesController@addSpecialitates');
+Route::delete('/specialitates', 'SpecialitatesController@deleteSpecialitates');
+Route::get('/specialitates/labot_specialitates/{id}', 'SpecialitatesController@updateSpecialitates');
+Route::post('/specialitates/labot_specialitates/{id}', 'SpecialitatesController@editSpecialitates');
+Route::get('/index1', 'SpecialitatesController@allSpecialitatesForIndex1');
+Route::get('/rvtadminrvt', function(){ return view('/admin/rvtadminrvt');});
+Route::get('/view_admin', 'StudentiController@allStudenti');
